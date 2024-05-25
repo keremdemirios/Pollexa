@@ -13,6 +13,8 @@
 		4198DEA92C029B43001C6413 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4198DEA82C029B43001C6413 /* Base */; };
 		4198DEAB2C029B44001C6413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4198DEAA2C029B44001C6413 /* Assets.xcassets */; };
 		4198DEAE2C029B44001C6413 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4198DEAD2C029B44001C6413 /* Base */; };
+		4198DEBD2C029D6C001C6413 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEBC2C029D6C001C6413 /* LoadingView.swift */; };
+		4198DEBF2C029D7D001C6413 /* LoadingShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEBE2C029D7D001C6413 /* LoadingShowable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		4198DEAA2C029B44001C6413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4198DEAD2C029B44001C6413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4198DEAF2C029B44001C6413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4198DEBC2C029D6C001C6413 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		4198DEBE2C029D7D001C6413 /* LoadingShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingShowable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +60,11 @@
 		4198DEA02C029B43001C6413 /* Pollexa */ = {
 			isa = PBXGroup;
 			children = (
-				4198DEA12C029B43001C6413 /* AppDelegate.swift */,
-				4198DEA32C029B43001C6413 /* SceneDelegate.swift */,
+				4198DEB92C029D12001C6413 /* Application */,
+				4198DEB82C029D0F001C6413 /* Utils */,
+				4198DEB72C029D0B001C6413 /* Model */,
+				4198DEB62C029D07001C6413 /* Modules */,
+				4198DEB52C029D03001C6413 /* Resources */,
 				4198DEA52C029B43001C6413 /* ViewController.swift */,
 				4198DEA72C029B43001C6413 /* Main.storyboard */,
 				4198DEAA2C029B44001C6413 /* Assets.xcassets */,
@@ -65,6 +72,61 @@
 				4198DEAF2C029B44001C6413 /* Info.plist */,
 			);
 			path = Pollexa;
+			sourceTree = "<group>";
+		};
+		4198DEB52C029D03001C6413 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4198DEB62C029D07001C6413 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		4198DEB72C029D0B001C6413 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4198DEB82C029D0F001C6413 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4198DEBA2C029D43001C6413 /* Components */,
+				4198DEBB2C029D4E001C6413 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		4198DEB92C029D12001C6413 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				4198DEA12C029B43001C6413 /* AppDelegate.swift */,
+				4198DEA32C029B43001C6413 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		4198DEBA2C029D43001C6413 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4198DEBC2C029D6C001C6413 /* LoadingView.swift */,
+				4198DEBE2C029D7D001C6413 /* LoadingShowable.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4198DEBB2C029D4E001C6413 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +201,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4198DEA62C029B43001C6413 /* ViewController.swift in Sources */,
+				4198DEBD2C029D6C001C6413 /* LoadingView.swift in Sources */,
 				4198DEA22C029B43001C6413 /* AppDelegate.swift in Sources */,
+				4198DEBF2C029D7D001C6413 /* LoadingShowable.swift in Sources */,
 				4198DEA42C029B43001C6413 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
