@@ -16,6 +16,13 @@
 		4198DEBF2C029D7D001C6413 /* LoadingShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEBE2C029D7D001C6413 /* LoadingShowable.swift */; };
 		4198DEC22C029FBB001C6413 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEC12C029FBB001C6413 /* RootBuilder.swift */; };
 		4198DEC62C02A00E001C6413 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEC52C02A00E001C6413 /* HomeViewController.swift */; };
+		4198DEC82C02A296001C6413 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEC72C02A296001C6413 /* HomeViewModel.swift */; };
+		4198DECA2C02A29C001C6413 /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEC92C02A29C001C6413 /* HomeBuilder.swift */; };
+		4198DECC2C02A533001C6413 /* posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 4198DECB2C02A533001C6413 /* posts.json */; };
+		4198DED12C02AE5F001C6413 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DED02C02AE5F001C6413 /* Post.swift */; };
+		4198DED32C02AE79001C6413 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DED22C02AE79001C6413 /* User.swift */; };
+		4198DED52C02AE86001C6413 /* PostOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DED42C02AE86001C6413 /* PostOption.swift */; };
+		4198DED72C03A18A001C6413 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DED62C03A18A001C6413 /* UIView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +37,13 @@
 		4198DEBE2C029D7D001C6413 /* LoadingShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingShowable.swift; sourceTree = "<group>"; };
 		4198DEC12C029FBB001C6413 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
 		4198DEC52C02A00E001C6413 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4198DEC72C02A296001C6413 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		4198DEC92C02A29C001C6413 /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
+		4198DECB2C02A533001C6413 /* posts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = posts.json; sourceTree = "<group>"; };
+		4198DED02C02AE5F001C6413 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		4198DED22C02AE79001C6413 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4198DED42C02AE86001C6413 /* PostOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOption.swift; sourceTree = "<group>"; };
+		4198DED62C03A18A001C6413 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +92,7 @@
 			children = (
 				4198DEAA2C029B44001C6413 /* Assets.xcassets */,
 				4198DEAC2C029B44001C6413 /* LaunchScreen.storyboard */,
+				4198DECB2C02A533001C6413 /* posts.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -94,6 +109,9 @@
 		4198DEB72C029D0B001C6413 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4198DED02C02AE5F001C6413 /* Post.swift */,
+				4198DED22C02AE79001C6413 /* User.swift */,
+				4198DED42C02AE86001C6413 /* PostOption.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,6 +146,7 @@
 		4198DEBB2C029D4E001C6413 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4198DED62C03A18A001C6413 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -145,6 +164,8 @@
 			children = (
 				4198DEC42C029FD7001C6413 /* Cell */,
 				4198DEC52C02A00E001C6413 /* HomeViewController.swift */,
+				4198DEC72C02A296001C6413 /* HomeViewModel.swift */,
+				4198DEC92C02A29C001C6413 /* HomeBuilder.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -217,6 +238,7 @@
 				4198DEAB2C029B44001C6413 /* Assets.xcassets in Resources */,
 				4198DEAE2C029B44001C6413 /* Base in Resources */,
 				4198DEA92C029B43001C6413 /* Base in Resources */,
+				4198DECC2C02A533001C6413 /* posts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,10 +250,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				4198DEBD2C029D6C001C6413 /* LoadingView.swift in Sources */,
+				4198DED52C02AE86001C6413 /* PostOption.swift in Sources */,
 				4198DEA22C029B43001C6413 /* AppDelegate.swift in Sources */,
+				4198DEC82C02A296001C6413 /* HomeViewModel.swift in Sources */,
 				4198DEC22C029FBB001C6413 /* RootBuilder.swift in Sources */,
+				4198DECA2C02A29C001C6413 /* HomeBuilder.swift in Sources */,
+				4198DED72C03A18A001C6413 /* UIView+Extensions.swift in Sources */,
 				4198DEBF2C029D7D001C6413 /* LoadingShowable.swift in Sources */,
+				4198DED12C02AE5F001C6413 /* Post.swift in Sources */,
 				4198DEA42C029B43001C6413 /* SceneDelegate.swift in Sources */,
+				4198DED32C02AE79001C6413 /* User.swift in Sources */,
 				4198DEC62C02A00E001C6413 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
