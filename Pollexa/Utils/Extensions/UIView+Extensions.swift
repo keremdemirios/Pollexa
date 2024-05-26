@@ -99,6 +99,13 @@ extension UIView {
         layer.cornerRadius = radius
     }
     
+    func makeCircle() {
+        let diameter = min(bounds.width, bounds.height)
+        let radius = diameter / 2.0
+        layer.cornerRadius = radius
+        clipsToBounds = true
+    }
+    
     // MARK: Add Subviews
     func addSubViews(_ views: UIView...){
         views.forEach({
