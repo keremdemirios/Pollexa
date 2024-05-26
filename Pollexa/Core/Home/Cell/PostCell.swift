@@ -13,6 +13,7 @@ final class PostCell: UICollectionViewCell {
     static let reuseIdentifier = "PostCell"
     
     // MARK: IBOutlets
+    @IBOutlet weak var postView: UIView!
     
     // Up Side
     @IBOutlet weak var avatarImage: UIImageView!
@@ -35,15 +36,35 @@ final class PostCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
+        configure()
     }
     
     private func configure() {
         setupView()
+        setupButtons()
+        setupAvatarImage()
     }
 
     private func setupView() {
+        makeBorder(color: .clear)
+        layer.cornerRadius = 25
+        // TODO: View'i ayarla duzgunce biraz daha iceriden baslasin.
+    }
+    
+    private func setupAvatarImage() {
+        avatarImage.makeBorder(color: .clear)
+//        avatarImage.makeCircle(radius: avatarImage.frame.size.height / 2)
+//        avatarImage.layer.cornerRadius = 22
+    }
+    
+    private func setupButtons() {
+        let radius = firstLikeButton.frame.size.width / 2
         
+        firstLikeButton.makeBorder(color: .clear)
+        firstLikeButton.makeCircle(radius: radius)
+        
+        secondLikeButton.makeBorder(color: .clear)
+        secondLikeButton.makeCircle(radius: radius)
     }
     
 }
