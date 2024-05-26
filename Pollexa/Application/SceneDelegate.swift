@@ -15,15 +15,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         self.window = UIWindow(windowScene: windowScene)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard   = UIStoryboard(name: "Main", bundle: nil)
         guard let rootVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else {
             return
         }
         
-        let viewModel = HomeViewModel()
+        let viewModel    = HomeViewModel()
         rootVC.viewModel = viewModel
         
-        let navigationController = UINavigationController(rootViewController: rootVC)
+        let navigationController        = UINavigationController(rootViewController: rootVC)
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
     }
