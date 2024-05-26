@@ -52,9 +52,9 @@ final class PostCell: UICollectionViewCell {
     }
     
     private func setupAvatarImage() {
+        let radius = avatarImage.frame.size.width / 2
         avatarImage.makeBorder(color: .clear)
-//        avatarImage.makeCircle(radius: avatarImage.frame.size.height / 2)
-//        avatarImage.layer.cornerRadius = 22
+        avatarImage.makeCircle(radius: radius)
     }
     
     private func setupButtons() {
