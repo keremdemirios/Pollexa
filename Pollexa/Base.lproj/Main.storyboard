@@ -61,13 +61,28 @@
                                     <constraint firstItem="XTN-JJ-9FZ" firstAttribute="leading" secondItem="XBB-RA-u40" secondAttribute="leading" constant="16" id="pXy-Xv-IJM"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mA4-gO-bJG">
+                                <rect key="frame" x="20" y="235" width="353" height="583"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="t0r-Ru-T0v">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
+                            <constraint firstItem="mA4-gO-bJG" firstAttribute="top" secondItem="XBB-RA-u40" secondAttribute="bottom" constant="24" id="0yz-48-gWB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XBB-RA-u40" secondAttribute="trailing" constant="20" id="79x-wV-2wA"/>
                             <constraint firstItem="XBB-RA-u40" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="D3F-kr-1gm"/>
+                            <constraint firstItem="mA4-gO-bJG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="KSO-3h-fCG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mA4-gO-bJG" secondAttribute="trailing" constant="20" id="P6c-ch-56p"/>
                             <constraint firstItem="XBB-RA-u40" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PZJ-ad-vjG"/>
+                            <constraint firstItem="mA4-gO-bJG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="U1E-pC-jap"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZMb-OS-XbA">
@@ -115,6 +130,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
