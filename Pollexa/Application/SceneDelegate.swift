@@ -13,10 +13,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-
-        window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = RootBuilder.build()
-        window?.makeKeyAndVisible()
+        
+        self.window = UIWindow(windowScene: windowScene)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let rootVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else {
+            return
+        }
+        
+        let viewModel = HomeViewModel()
+        rootVC.viewModel = viewModel
+        
+        let navigationController = UINavigationController(rootViewController: rootVC)
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
     }
 }
 
