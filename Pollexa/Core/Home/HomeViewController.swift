@@ -9,6 +9,11 @@ import UIKit
 
 final class HomeViewController: UIViewController {
     
+    // MARK: IBOutlets
+    @IBOutlet weak var headerItem: UIView!
+    
+    
+    // MARK: View Model
     var viewModel: HomeViewModelProtocol! {
         didSet {
             viewModel.delegate = self
@@ -26,6 +31,7 @@ final class HomeViewController: UIViewController {
     private func configure() {
         setupView()
         setupAvatar()
+        setupHeaderView()
     }
     
     private func setupView() {
@@ -61,7 +67,11 @@ final class HomeViewController: UIViewController {
         // NavigationItem'ın sol bar buton öğelerini ayarlama
         navigationItem.leftBarButtonItems = [negativeSpacer, imageItem]
     }
-
+    
+    private func setupHeaderView() {
+        headerItem.makeBorder(color: .clear)
+        headerItem.layer.cornerRadius = headerItem.frame.size.width / 16
+    }
 
     
     @IBAction func addBarButtonItemAction(_ sender: Any) {

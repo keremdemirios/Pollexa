@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,8 +17,58 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XBB-RA-u40">
+                                <rect key="frame" x="20" y="133" width="353" height="78"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTN-JJ-9FZ">
+                                        <rect key="frame" x="16" y="2" width="321" height="74"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="-25" translatesAutoresizingMaskIntoConstraints="NO" id="fjS-zj-H0b">
+                                                <rect key="frame" x="0.0" y="0.0" width="272" height="74"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Active Pools" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Occ-v3-ose">
+                                                        <rect key="frame" x="0.0" y="0.0" width="134.66666666666666" height="49.666666666666664"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                                        <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ete-Xb-fKL">
+                                                        <rect key="frame" x="0.0" y="24.666666666666661" width="85.333333333333329" height="49.333333333333343"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnI-bi-0K1">
+                                                <rect key="frame" x="272" y="0.0" width="49" height="74"/>
+                                                <color key="tintColor" systemColor="secondarySystemBackgroundColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <imageReference key="image" image="arrow.right.square.fill" catalog="system" symbolScale="large"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="3m1-ot-3Gt"/>
+                                    <constraint firstItem="XTN-JJ-9FZ" firstAttribute="top" secondItem="XBB-RA-u40" secondAttribute="top" constant="2" id="Jxs-rQ-xfG"/>
+                                    <constraint firstAttribute="trailing" secondItem="XTN-JJ-9FZ" secondAttribute="trailing" constant="16" id="Nfg-yF-MG1"/>
+                                    <constraint firstAttribute="bottom" secondItem="XTN-JJ-9FZ" secondAttribute="bottom" constant="2" id="eCp-ex-9HK"/>
+                                    <constraint firstItem="XTN-JJ-9FZ" firstAttribute="leading" secondItem="XBB-RA-u40" secondAttribute="leading" constant="16" id="pXy-Xv-IJM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XBB-RA-u40" secondAttribute="trailing" constant="20" id="79x-wV-2wA"/>
+                            <constraint firstItem="XBB-RA-u40" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="D3F-kr-1gm"/>
+                            <constraint firstItem="XBB-RA-u40" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PZJ-ad-vjG"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZMb-OS-XbA">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rNe-0v-zsw">
@@ -27,6 +78,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="headerItem" destination="XBB-RA-u40" id="Gjj-x8-AMq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -52,9 +106,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.right.square.fill" catalog="system" width="128" height="114"/>
         <namedColor name="AccentColor">
             <color red="0.3449999988079071" green="0.33700001239776611" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
