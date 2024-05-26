@@ -68,6 +68,7 @@ final class HomeViewController: UIViewController {
         postsCollectionView.dataSource = self
         postsCollectionView.collectionViewLayout = createLayout(for: postsCollectionView.frame.size.width, scrollDirection: .vertical)
         postsCollectionView.register(UINib(nibName: "PostCell", bundle: nil), forCellWithReuseIdentifier: PostCell.reuseIdentifier)
+        postsCollectionView.backgroundColor = .systemGray6
     }
     
     private func createLayout(for height: Double, scrollDirection: UICollectionView.ScrollDirection) -> UICollectionViewLayout {
@@ -76,7 +77,7 @@ final class HomeViewController: UIViewController {
         let width = UIScreen.main.bounds.width
         flowLayout.itemSize = CGSize(width: width, height: height)
         flowLayout.minimumLineSpacing = 8
-        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumInteritemSpacing = 8
         return flowLayout
     }
     
@@ -128,5 +129,9 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = postsCollectionView.frame.size.width
         return CGSize(width: collectionViewWidth, height: 331)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 12
     }
 }
