@@ -24,7 +24,13 @@ final class HomeViewController: UIViewController {
     }
     
     private func configure() {
+        setupView()
         setupAvatar()
+    }
+    
+    private func setupView() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Discover"
     }
     
     private func setupAvatar() {
