@@ -28,6 +28,12 @@ final class HomeViewController: UIViewController {
         configure()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
+    
     private func configure() {
         setupView()
         setupAvatar()
@@ -88,12 +94,19 @@ final class HomeViewController: UIViewController {
 
 // MARK: Extensions
 extension HomeViewController: HomeViewModelDelegate, LoadingShowable {
+    
     func reloadData() {
-        //
+        DispatchQueue.main.async {
+            self.postsCollectionView.reloadData()
+        }
+    }
+    
+    func showError(_ message: String) {
+        showAlert(title: "Error", message: message)
     }
     
     func startLoading() {
-//        showLoading()
+        showLoading()
     }
     
     func stopLoading() {
@@ -103,7 +116,7 @@ extension HomeViewController: HomeViewModelDelegate, LoadingShowable {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return viewModel.numberOfPosts
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -111,7 +124,10 @@ extension HomeViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCell.reuseIdentifier, for: indexPath) as? PostCell else {
             return UICollectionViewCell()
         }
-        // TODO: Configure Cell
+        
+        if let post = viewModel.post(at: indexPath.item) {
+            cell.configure(with: post)
+        }
         
         return cell
     }
