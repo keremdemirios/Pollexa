@@ -25,6 +25,9 @@
 		4198DED72C03A18A001C6413 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DED62C03A18A001C6413 /* UIView+Extensions.swift */; };
 		4198DEDD2C03B86F001C6413 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4198DEDC2C03B86F001C6413 /* PostCell.xib */; };
 		4198DEDE2C03B86F001C6413 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEDB2C03B86F001C6413 /* PostCell.swift */; };
+		4198DEE22C04C2CD001C6413 /* PostProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEE12C04C2CD001C6413 /* PostProvider.swift */; };
+		4198DEE42C04C661001C6413 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEE32C04C661001C6413 /* UIViewController+Extensions.swift */; };
+		4198DEE62C04C9E0001C6413 /* PostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEE52C04C9E0001C6413 /* PostCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		4198DED62C03A18A001C6413 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		4198DEDB2C03B86F001C6413 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		4198DEDC2C03B86F001C6413 /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		4198DEE12C04C2CD001C6413 /* PostProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProvider.swift; sourceTree = "<group>"; };
+		4198DEE32C04C661001C6413 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		4198DEE52C04C9E0001C6413 /* PostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,7 @@
 				4198DEB82C029D0F001C6413 /* Utils */,
 				4198DEB72C029D0B001C6413 /* Model */,
 				4198DEB62C029D07001C6413 /* Core */,
+				4198DEE02C04C2B1001C6413 /* Helpers */,
 				4198DEB52C029D03001C6413 /* Resources */,
 				4198DEA72C029B43001C6413 /* Main.storyboard */,
 				4198DEAF2C029B44001C6413 /* Info.plist */,
@@ -151,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				4198DED62C03A18A001C6413 /* UIView+Extensions.swift */,
+				4198DEE32C04C661001C6413 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -179,8 +187,17 @@
 			children = (
 				4198DEDB2C03B86F001C6413 /* PostCell.swift */,
 				4198DEDC2C03B86F001C6413 /* PostCell.xib */,
+				4198DEE52C04C9E0001C6413 /* PostCellViewModel.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		4198DEE02C04C2B1001C6413 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4198DEE12C04C2CD001C6413 /* PostProvider.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,12 +277,15 @@
 				4198DED52C02AE86001C6413 /* PostOption.swift in Sources */,
 				4198DEDE2C03B86F001C6413 /* PostCell.swift in Sources */,
 				4198DEA22C029B43001C6413 /* AppDelegate.swift in Sources */,
+				4198DEE62C04C9E0001C6413 /* PostCellViewModel.swift in Sources */,
 				4198DEC82C02A296001C6413 /* HomeViewModel.swift in Sources */,
 				4198DEC22C029FBB001C6413 /* RootBuilder.swift in Sources */,
 				4198DECA2C02A29C001C6413 /* HomeBuilder.swift in Sources */,
+				4198DEE42C04C661001C6413 /* UIViewController+Extensions.swift in Sources */,
 				4198DED72C03A18A001C6413 /* UIView+Extensions.swift in Sources */,
 				4198DEBF2C029D7D001C6413 /* LoadingShowable.swift in Sources */,
 				4198DED12C02AE5F001C6413 /* Post.swift in Sources */,
+				4198DEE22C04C2CD001C6413 /* PostProvider.swift in Sources */,
 				4198DEA42C029B43001C6413 /* SceneDelegate.swift in Sources */,
 				4198DED32C02AE79001C6413 /* User.swift in Sources */,
 				4198DEC62C02A00E001C6413 /* HomeViewController.swift in Sources */,
