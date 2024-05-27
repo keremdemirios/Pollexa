@@ -96,11 +96,12 @@ final class PostCell: UICollectionViewCell {
     func configure(with post: Post) {
         avatarImage.image        = post.user.image
         nameLabel.text           = post.user.username
-        timeOfSharingLabel.text  = DateFormatter.localizedString(
-            from      : post.createdAt,
-            dateStyle : .medium,
-            timeStyle : .short
-        )
+        timeOfSharingLabel.text  = post.createdAt.timeAgoDisplay()
+//        timeOfSharingLabel.text  = DateFormatter.localizedString(
+//            from      : post.createdAt,
+//            dateStyle : .medium,
+//            timeStyle : .short
+//        )
         questionLabel.text       = post.content
         
         if let firstOption = post.options.first {
