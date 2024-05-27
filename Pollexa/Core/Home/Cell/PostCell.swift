@@ -8,7 +8,7 @@
 import UIKit
 
 final class PostCell: UICollectionViewCell {
-
+    
     // MARK: Reuse Identifier
     static let reuseIdentifier = "PostCell"
     
@@ -43,51 +43,53 @@ final class PostCell: UICollectionViewCell {
         setupView()
         setupButtons()
         setupAvatarImage()
-//        setupImageViews()
+        //        setupImageViews()
     }
-
+    
     override func layoutSubviews() {
-           super.layoutSubviews()
-           
-           setupImageViews()
-       }
-
-       private func setupView() {
-           makeBorder(color: .red)
-           layer.cornerRadius = 25
-           
-           // TODO: View'i ayarla duzgunce biraz daha iceriden baslasin.
-       }
-       
-       private func setupAvatarImage() {
-           let radius = avatarImage.frame.size.width / 2
-           avatarImage.makeBorder(color: .clear)
-           avatarImage.makeCircle(radius: radius)
-       }
-       
-       private func setupImageViews() {
-           DispatchQueue.main.async {
-               self.firstImageView.clipsToBounds  = true
-               self.secondImageView.clipsToBounds = true
-               self.firstImageView.contentMode    = .scaleAspectFill
-               self.secondImageView.contentMode   = .scaleAspectFill
-               
-               let radius = self.firstImageView.frame.size.height / 10
-               self.firstImageView.makeBorder(color: .clear)
-               self.firstImageView.roundCorners(corners: [.topLeft, .bottomLeft], radius: radius)
-               
-               self.secondImageView.makeBorder(color: .clear)
-               self.secondImageView.roundCorners(corners: [.topRight, .bottomRight], radius: radius)
-           }
-       }
-       
-       private func setupButtons() {
-           let radius = firstLikeButton.frame.size.width / 2
-           
-           firstLikeButton.makeBorder(color: .clear)
-           firstLikeButton.makeCircle(radius: radius)
-           
-           secondLikeButton.makeBorder(color: .clear)
-           secondLikeButton.makeCircle(radius: radius)
-       }
-   }
+        super.layoutSubviews()
+//        setupView()
+//        setupButtons()
+//        setupAvatarImage()
+        setupImageViews()
+    }
+    
+    private func setupView() {
+        makeBorder(color: .red)
+        layer.cornerRadius = 25
+        
+        // TODO: View'i ayarla duzgunce biraz daha iceriden baslasin.
+    }
+    
+    private func setupAvatarImage() {
+        let radius = avatarImage.frame.size.width / 2
+        avatarImage.makeBorder(color: .clear)
+        avatarImage.makeCircle(radius: radius)
+    }
+    
+    private func setupImageViews() {
+        DispatchQueue.main.async {
+            self.firstImageView.clipsToBounds  = true
+            self.secondImageView.clipsToBounds = true
+            self.firstImageView.contentMode    = .scaleAspectFill
+            self.secondImageView.contentMode   = .scaleAspectFill
+            
+            let radius = self.firstImageView.frame.size.height / 10
+            self.firstImageView.makeBorder(color: .clear)
+            self.firstImageView.roundCorners(corners: [.topLeft, .bottomLeft], radius: radius)
+            
+            self.secondImageView.makeBorder(color: .clear)
+            self.secondImageView.roundCorners(corners: [.topRight, .bottomRight], radius: radius)
+        }
+    }
+    
+    private func setupButtons() {
+        let radius = firstLikeButton.frame.size.width / 2
+        
+        firstLikeButton.makeBorder(color: .clear)
+        firstLikeButton.makeCircle(radius: radius)
+        
+        secondLikeButton.makeBorder(color: .clear)
+        secondLikeButton.makeCircle(radius: radius)
+    }
+}
