@@ -92,4 +92,23 @@ final class PostCell: UICollectionViewCell {
         secondLikeButton.makeBorder(color: .clear)
         secondLikeButton.makeCircle(radius: radius)
     }
+    
+    func configure(with post: Post) {
+        avatarImage.image        = post.user.image
+        nameLabel.text           = post.user.username
+        timeOfSharingLabel.text  = DateFormatter.localizedString(
+            from      : post.createdAt,
+            dateStyle : .medium,
+            timeStyle : .short
+        )
+        questionLabel.text       = post.content
+        
+        if let firstOption = post.options.first {
+            firstImageView.image = firstOption.image
+        }
+        
+        if post.options.count > 1 {
+            secondImageView.image = post.options[1].image
+        }
+    }
 }
