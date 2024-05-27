@@ -28,6 +28,7 @@
 		4198DEE22C04C2CD001C6413 /* PostProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEE12C04C2CD001C6413 /* PostProvider.swift */; };
 		4198DEE42C04C661001C6413 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEE32C04C661001C6413 /* UIViewController+Extensions.swift */; };
 		4198DEE62C04C9E0001C6413 /* PostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEE52C04C9E0001C6413 /* PostCellViewModel.swift */; };
+		4198DEE82C04D976001C6413 /* Date+Extenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEE72C04D976001C6413 /* Date+Extenions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		4198DEE12C04C2CD001C6413 /* PostProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProvider.swift; sourceTree = "<group>"; };
 		4198DEE32C04C661001C6413 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		4198DEE52C04C9E0001C6413 /* PostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewModel.swift; sourceTree = "<group>"; };
+		4198DEE72C04D976001C6413 /* Date+Extenions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extenions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			children = (
 				4198DED62C03A18A001C6413 /* UIView+Extensions.swift */,
 				4198DEE32C04C661001C6413 /* UIViewController+Extensions.swift */,
+				4198DEE72C04D976001C6413 /* Date+Extenions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			files = (
 				4198DEBD2C029D6C001C6413 /* LoadingView.swift in Sources */,
 				4198DED52C02AE86001C6413 /* PostOption.swift in Sources */,
+				4198DEE82C04D976001C6413 /* Date+Extenions.swift in Sources */,
 				4198DEDE2C03B86F001C6413 /* PostCell.swift in Sources */,
 				4198DEA22C029B43001C6413 /* AppDelegate.swift in Sources */,
 				4198DEE62C04C9E0001C6413 /* PostCellViewModel.swift in Sources */,
