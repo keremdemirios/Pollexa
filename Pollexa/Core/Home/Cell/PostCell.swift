@@ -33,27 +33,28 @@ final class PostCell: UICollectionViewCell {
     @IBOutlet weak var secondLikeButton: UIButton!
     @IBOutlet weak var secondPercentageLabel: UILabel!
     
+    // MARK: Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         
         configure()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        setupImageViews()
+    }
+    
+    // MARK: Configure
     private func configure() {
         setupView()
         setupButtons()
         setupAvatarImage()
-        //        setupImageViews()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-//        setupView()
-//        setupButtons()
-//        setupAvatarImage()
-        setupImageViews()
-    }
     
+    // MARK: Functions
     private func setupView() {
         makeBorder(color: .red)
         layer.cornerRadius = 25
@@ -97,11 +98,6 @@ final class PostCell: UICollectionViewCell {
         avatarImage.image        = post.user.image
         nameLabel.text           = post.user.username
         timeOfSharingLabel.text  = post.createdAt.timeAgoDisplay()
-//        timeOfSharingLabel.text  = DateFormatter.localizedString(
-//            from      : post.createdAt,
-//            dateStyle : .medium,
-//            timeStyle : .short
-//        )
         questionLabel.text       = post.content
         
         if let firstOption = post.options.first {
@@ -111,5 +107,30 @@ final class PostCell: UICollectionViewCell {
         if post.options.count > 1 {
             secondImageView.image = post.options[1].image
         }
+        
+        firstLikeButton.isHidden = false
+        secondLikeButton.isHidden = false
+        
+        firstPercentageLabel.isHidden = true
+        secondPercentageLabel.isHidden = true
+    }
+    
+    // MARK: Actions
+    @IBAction func firstLikeButtonAction(_ sender: UIButton) {
+        print("First image liked.")
+        
+        firstLikeButton.isHidden = true
+        secondLikeButton.isHidden = true
+        firstPercentageLabel.isHidden = false
+        secondPercentageLabel.isHidden = false
+    }
+    
+    @IBAction func secondLikeButtonAction(_ sender: UIButton) {
+        print("Second image liked.")
+        
+        firstLikeButton.isHidden = true
+        secondLikeButton.isHidden = true
+        firstPercentageLabel.isHidden = false
+        secondPercentageLabel.isHidden = false
     }
 }
