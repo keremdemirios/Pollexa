@@ -1,142 +1,156 @@
 [
    {
-      "id":"post_1",
-      "created_at":"2024-04-29T15:12:15Z",
-      "content":"Which dessert should I serve at my party?",
-      "options":[
+      "id": "post_1",
+      "created_at": "2024-04-29T15:12:15Z",
+      "content": "Which dessert should I serve at my party?",
+      "options": [
          {
-            "id":"option_1",
-            "image_name":"post_1_option_1"
+            "id": "option_1",
+            "image_name": "post_1_option_1",
+            "votes": 10
          },
          {
-            "id":"option_2",
-            "image_name":"post_1_option_2"
+            "id": "option_2",
+            "image_name": "post_1_option_2",
+            "votes": 5
          }
       ],
-      "user":{
-         "id":"user_1",
-         "username":"Alice",
-         "image_name":"avatar_1"
+      "user": {
+         "id": "user_1",
+         "username": "Alice",
+         "image_name": "avatar_1"
       }
    },
    {
-      "id":"post_2",
-      "created_at":"2024-04-15T15:12:15Z",
-      "content":"Which car should I buy for my next vehicle?",
-      "options":[
+      "id": "post_2",
+      "created_at": "2024-04-15T15:12:15Z",
+      "content": "Which car should I buy for my next vehicle?",
+      "options": [
          {
-            "id":"option_1",
-            "image_name":"post_2_option_1"
+            "id": "option_1",
+            "image_name": "post_2_option_1",
+            "votes": 7
          },
          {
-            "id":"option_2",
-            "image_name":"post_2_option_2"
+            "id": "option_2",
+            "image_name": "post_2_option_2",
+            "votes": 8
          }
       ],
-      "user":{
-         "id":"user_3",
-         "username":"Chris",
-         "image_name":"avatar_3"
+      "user": {
+         "id": "user_3",
+         "username": "Chris",
+         "image_name": "avatar_3"
       }
    },
    {
-      "id":"post_3",
-      "created_at":"2024-05-07T15:12:15Z",
-      "content":"Where should we go for our anniversary trip?",
-      "options":[
+      "id": "post_3",
+      "created_at": "2024-05-07T15:12:15Z",
+      "content": "Where should we go for our anniversary trip?",
+      "options": [
          {
-            "id":"option_1",
-            "image_name":"post_3_option_1"
+            "id": "option_1",
+            "image_name": "post_3_option_1",
+            "votes": 20
          },
          {
-            "id":"option_2",
-            "image_name":"post_3_option_2"
+            "id": "option_2",
+            "image_name": "post_3_option_2",
+            "votes": 10
          }
       ],
-      "user":{
-         "id":"user_4",
-         "username":"Diana",
-         "image_name":"avatar_4"
+      "user": {
+         "id": "user_4",
+         "username": "Diana",
+         "image_name": "avatar_4"
       }
    },
    {
-      "id":"post_4",
-      "created_at":"2024-05-07T15:12:15Z",
-      "content":"Which breed should we choose for our new family pet?",
-      "options":[
+      "id": "post_4",
+      "created_at": "2024-05-07T15:12:15Z",
+      "content": "Which breed should we choose for our new family pet?",
+      "options": [
          {
-            "id":"option_1",
-            "image_name":"post_4_option_1"
+            "id": "option_1",
+            "image_name": "post_4_option_1",
+            "votes": 15
          },
          {
-            "id":"option_2",
-            "image_name":"post_4_option_2"
+            "id": "option_2",
+            "image_name": "post_4_option_2",
+            "votes": 5
          }
       ],
-      "user":{
-         "id":"user_5",
-         "username":"Evan",
-         "image_name":"avatar_5"
+      "user": {
+         "id": "user_5",
+         "username": "Evan",
+         "image_name": "avatar_5"
       }
    },
    {
-      "id":"post_5",
-      "created_at":"2024-05-02T15:12:15Z",
-      "content":"Which design should we choose for our new office layout?",
-      "options":[
+      "id": "post_5",
+      "created_at": "2024-05-02T15:12:15Z",
+      "content": "Which design should we choose for our new office layout?",
+      "options": [
          {
-            "id":"option_1",
-            "image_name":"post_5_option_1"
+            "id": "option_1",
+            "image_name": "post_5_option_1",
+            "votes": 12
          },
          {
-            "id":"option_2",
-            "image_name":"post_5_option_2"
+            "id": "option_2",
+            "image_name": "post_5_option_2",
+            "votes": 18
          }
       ],
-      "user":{
-         "id":"user_3",
-         "username":"Chris",
-         "image_name":"avatar_3"
+      "user": {
+         "id": "user_3",
+         "username": "Chris",
+         "image_name": "avatar_3"
       }
    },
    {
-      "id":"post_6",
-      "created_at":"2024-04-19T15:12:15Z",
-      "content":"Which guitar should I buy as a beginner?",
-      "options":[
+      "id": "post_6",
+      "created_at": "2024-04-19T15:12:15Z",
+      "content": "Which guitar should I buy as a beginner?",
+      "options": [
          {
-            "id":"option_1",
-            "image_name":"post_6_option_1"
+            "id": "option_1",
+            "image_name": "post_6_option_1",
+            "votes": 9
          },
          {
-            "id":"option_2",
-            "image_name":"post_6_option_2"
+            "id": "option_2",
+            "image_name": "post_6_option_2",
+            "votes": 3
          }
       ],
-      "user":{
-         "id":"user_1",
-         "username":"Alice",
-         "image_name":"avatar_1"
+      "user": {
+         "id": "user_1",
+         "username": "Alice",
+         "image_name": "avatar_1"
       }
    },
    {
-      "id":"post_7",
-      "created_at":"2024-04-28T15:12:15Z",
-      "content":"What theme should we pick for the year-end company party?",
-      "options":[
+      "id": "post_7",
+      "created_at": "2024-04-28T15:12:15Z",
+      "content": "What theme should we pick for the year-end company party?",
+      "options": [
          {
-            "id":"option_1",
-            "image_name":"post_7_option_1"
+            "id": "option_1",
+            "image_name": "post_7_option_1",
+            "votes": 11
          },
          {
-            "id":"option_2",
-            "image_name":"post_7_option_2"
+            "id": "option_2",
+            "image_name": "post_7_option_2",
+            "votes": 14
          }
       ],
-      "user":{
-         "id":"user_2",
-         "username":"Beth",
-         "image_name":"avatar_2"
+      "user": {
+         "id": "user_2",
+         "username": "Beth",
+         "image_name": "avatar_2"
       }
    }
 ]

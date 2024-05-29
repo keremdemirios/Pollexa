@@ -8,24 +8,20 @@
 import UIKit
 
 struct User: Decodable {
+    let id: String
+    let username: String
+    let image: UIImage
     
-    // MARK: - Types
     enum CodingKeys: String, CodingKey {
         case id
         case username
         case imageName
     }
     
-    // MARK: - Properties
-    let id       : String
-    let username : String
-    let image    : UIImage
-    
-    // MARK: - Life Cycle
-    init(from decoder: any Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        id       = try container.decode(String.self, forKey: .id)
+        id = try container.decode(String.self, forKey: .id)
         username = try container.decode(String.self, forKey: .username)
         
         let imageName = try container.decode(String.self, forKey: .imageName)
@@ -34,9 +30,10 @@ struct User: Decodable {
             self.image = image
         } else {
             throw DecodingError.dataCorrupted(.init(
-                codingPath       : [CodingKeys.imageName],
-                debugDescription : "An image with name \(imageName) could not be loaded from the bundle.")
+                codingPath: [CodingKeys.imageName],
+                debugDescription: "An image with name \(imageName) could not be loaded from the bundle.")
             )
         }
     }
 }
+

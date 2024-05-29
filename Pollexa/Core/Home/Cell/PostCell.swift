@@ -33,6 +33,11 @@ final class PostCell: UICollectionViewCell {
     @IBOutlet weak var secondLikeButton: UIButton!
     @IBOutlet weak var secondPercentageLabel: UILabel!
     
+    @IBOutlet weak var totalVotesLabel: UILabel!
+    
+    private var post: Post?
+    private var voted: Bool = false
+    
     // MARK: Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -58,7 +63,7 @@ final class PostCell: UICollectionViewCell {
     private func setupView() {
         makeBorder(color: .red)
         layer.cornerRadius = 25
-        
+        updateVoteVisibility(voted: false)
         // TODO: View'i ayarla duzgunce biraz daha iceriden baslasin.
     }
     
@@ -95,42 +100,67 @@ final class PostCell: UICollectionViewCell {
     }
     
     func configure(with post: Post) {
-        avatarImage.image        = post.user.image
-        nameLabel.text           = post.user.username
-        timeOfSharingLabel.text  = post.createdAt.timeAgoDisplay()
-        questionLabel.text       = post.content
+        self.post = post
+        
+        avatarImage.image = post.user.image
+        nameLabel.text = post.user.username
+        timeOfSharingLabel.text = post.createdAt.timeAgoDisplay()
+        questionLabel.text = post.content
+        
+        let totalVotes = post.options.reduce(0) { $0 + $1.votes }
+        totalVotesLabel.text = String("\(totalVotes) Total Votes")
+        
+        let firstOptionVotes = post.options.first?.votes ?? 0
+        let secondOptionVotes = post.options.count > 1 ? post.options[1].votes : 0
+        
+        print("Total votes : \(totalVotes)")
         
         if let firstOption = post.options.first {
             firstImageView.image = firstOption.image
+            
+            let firstPercentage = totalVotes == 0 ? 0 : Double(firstOptionVotes) / Double(totalVotes) * 100
+            firstPercentageLabel.text = String(format: "%.0f%%", firstPercentage)
         }
         
         if post.options.count > 1 {
             secondImageView.image = post.options[1].image
+            
+            let secondPercentage = totalVotes == 0 ? 0 : Double(secondOptionVotes) / Double(totalVotes) * 100
+            secondPercentageLabel.text = String(format: "%.0f%%", secondPercentage)
         }
-        
-        firstLikeButton.isHidden = false
-        secondLikeButton.isHidden = false
-        
-        firstPercentageLabel.isHidden = true
-        secondPercentageLabel.isHidden = true
     }
+    
+    
+    private func updateVoteVisibility(voted: Bool) {
+        firstLikeButton.isHidden = voted
+        secondLikeButton.isHidden = voted
+        
+        firstPercentageLabel.isHidden = !voted
+        secondPercentageLabel.isHidden = !voted
+    }
+    
+    
+    private func vote(for optionIndex: Int) {
+        guard var post = post else { return }
+        
+        post.options[optionIndex].votes += 1
+        configure(with: post)
+        
+        self.voted = true
+    }
+    
+    
     
     // MARK: Actions
     @IBAction func firstLikeButtonAction(_ sender: UIButton) {
         print("First image liked.")
-        
-        firstLikeButton.isHidden = true
-        secondLikeButton.isHidden = true
-        firstPercentageLabel.isHidden = false
-        secondPercentageLabel.isHidden = false
+        vote(for: 0)
+        updateVoteVisibility(voted: true)
     }
     
     @IBAction func secondLikeButtonAction(_ sender: UIButton) {
         print("Second image liked.")
-        
-        firstLikeButton.isHidden = true
-        secondLikeButton.isHidden = true
-        firstPercentageLabel.isHidden = false
-        secondPercentageLabel.isHidden = false
+        vote(for: 1)
+        updateVoteVisibility(voted: true)
     }
 }

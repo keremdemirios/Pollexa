@@ -271,6 +271,7 @@
                 <outlet property="secondPercentageLabel" destination="W4F-RH-o7l" id="q1Y-Fw-ifz"/>
                 <outlet property="timeOfLastVote" destination="WaA-FF-7ag" id="idi-IK-rmL"/>
                 <outlet property="timeOfSharingLabel" destination="4nx-F9-cbE" id="Kwo-TU-89U"/>
+                <outlet property="totalVotesLabel" destination="4AF-8Z-IHI" id="hgn-f1-fcK"/>
             </connections>
             <point key="canvasLocation" x="-76.33587786259541" y="17.253521126760564"/>
         </collectionViewCell>

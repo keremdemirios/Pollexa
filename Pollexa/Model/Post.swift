@@ -8,12 +8,16 @@
 import UIKit
 
 struct Post: Decodable {
+    let id: String
+    let createdAt: Date
+    let content: String
+    var options: [PostOption]
+    let user: User
     
-    // MARK: - Properties
-    let id        : String
-    let createdAt : Date
-    let content   : String
-    let options   : [Option]
-    let user      : User
+    mutating func vote(for optionIndex: Int) {
+        guard optionIndex < options.count else { return }
+        options[optionIndex].votes += 1
+    }
 }
+
 
