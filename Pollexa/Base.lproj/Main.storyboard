@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XBB-RA-u40">
-                                <rect key="frame" x="20" y="133" width="390" height="78"/>
+                                <rect key="frame" x="20" y="123" width="390" height="78"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTN-JJ-9FZ">
                                         <rect key="frame" x="16" y="2" width="358" height="74"/>
@@ -62,7 +62,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mA4-gO-bJG">
-                                <rect key="frame" x="20" y="235" width="390" height="651"/>
+                                <rect key="frame" x="20" y="225" width="390" height="661"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="t0r-Ru-T0v">
                                     <size key="itemSize" width="128" height="128"/>
@@ -78,7 +78,7 @@
                         <constraints>
                             <constraint firstItem="mA4-gO-bJG" firstAttribute="top" secondItem="XBB-RA-u40" secondAttribute="bottom" constant="24" id="0yz-48-gWB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XBB-RA-u40" secondAttribute="trailing" constant="20" id="79x-wV-2wA"/>
-                            <constraint firstItem="XBB-RA-u40" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="D3F-kr-1gm"/>
+                            <constraint firstItem="XBB-RA-u40" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="D3F-kr-1gm"/>
                             <constraint firstItem="mA4-gO-bJG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="KSO-3h-fCG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mA4-gO-bJG" secondAttribute="trailing" constant="20" id="P6c-ch-56p"/>
                             <constraint firstItem="XBB-RA-u40" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PZJ-ad-vjG"/>
@@ -95,6 +95,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="headerItem" destination="XBB-RA-u40" id="Gjj-x8-AMq"/>
+                        <outlet property="headerItemButton" destination="QnI-bi-0K1" id="QUb-nS-wYU"/>
                         <outlet property="postsCollectionView" destination="mA4-gO-bJG" id="Fvx-99-Lmn"/>
                     </connections>
                 </viewController>
