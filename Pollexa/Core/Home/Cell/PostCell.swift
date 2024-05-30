@@ -63,7 +63,7 @@ final class PostCell: UICollectionViewCell {
     
     // MARK: Functions
     private func setupView() {
-        makeBorder(color: .red)
+        makeBorder(color: .clear)
         layer.cornerRadius = 25
         updateVoteVisibility(voted: false)
         // TODO: View'i ayarla duzgunce biraz daha iceriden baslasin.
