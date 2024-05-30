@@ -37,6 +37,8 @@ final class PostCell: UICollectionViewCell {
     
     private var post: Post?
     private var voted: Bool = false
+    private var timer: Timer?
+    private var lastVoteDate: Date?
     
     // MARK: Life Cycle
     override func awakeFromNib() {
@@ -113,8 +115,6 @@ final class PostCell: UICollectionViewCell {
         let firstOptionVotes = post.options.first?.votes ?? 0
         let secondOptionVotes = post.options.count > 1 ? post.options[1].votes : 0
         
-        print("Total votes : \(totalVotes)")
-        
         if let firstOption = post.options.first {
             firstImageView.image = firstOption.image
             
@@ -149,18 +149,42 @@ final class PostCell: UICollectionViewCell {
         self.voted = true
     }
     
+    private func handleVoteAction() {
+        lastVoteDate = Date()
+        updateLastVoteTime()
+        
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(updateLastVoteTime), userInfo: nil, repeats: true)
+    }
     
+    @objc private func updateLastVoteTime() {
+        guard let lastVoteDate = lastVoteDate else { return }
+        
+        let timeInterval = -lastVoteDate.timeIntervalSinceNow
+        
+        if timeInterval < 60 {
+            timeOfLastVote.text = "LAST VOTED JUST NOW"
+        } else if timeInterval < 3600 {
+            let minutes = Int(timeInterval / 60)
+            timeOfLastVote.text = "LAST VOTED \(minutes) MINUTES AGO"
+        } else {
+            let hours = Int(timeInterval / 3600)
+            timeOfLastVote.text = "LAST VOTED \(hours) HOURS AGO"
+        }
+    }
     
     // MARK: Actions
     @IBAction func firstLikeButtonAction(_ sender: UIButton) {
         print("First image liked.")
         vote(for: 0)
         updateVoteVisibility(voted: true)
+        handleVoteAction()
     }
     
     @IBAction func secondLikeButtonAction(_ sender: UIButton) {
         print("Second image liked.")
         vote(for: 1)
         updateVoteVisibility(voted: true)
+        handleVoteAction()
     }
 }
