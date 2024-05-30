@@ -30,8 +30,7 @@ final class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
+           
     }
     
     private func configure() {
@@ -97,6 +96,7 @@ extension HomeViewController: HomeViewModelDelegate, LoadingShowable {
     
     func reloadData() {
         DispatchQueue.main.async {
+            self.viewModel.sortPostByDate()
             self.postsCollectionView.reloadData()
         }
     }

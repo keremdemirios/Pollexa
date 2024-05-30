@@ -14,11 +14,13 @@
 import Foundation
 
 protocol HomeViewModelProtocol {
+//    var posts: [Post] { get }
+    var numberOfPosts: Int { get }
     var delegate: HomeViewModelDelegate? { get set }
     
     func didLoad()
     func post(at index: Int) -> Post?
-    var numberOfPosts: Int { get }
+    func sortPostByDate()
 }
 
 protocol HomeViewModelDelegate: AnyObject {
@@ -30,7 +32,7 @@ protocol HomeViewModelDelegate: AnyObject {
 
 final class HomeViewModel {
     
-    private var posts = [Post]()
+    var posts = [Post]()
     
     weak var delegate: HomeViewModelDelegate?
     
@@ -70,6 +72,10 @@ extension HomeViewModel: HomeViewModelProtocol {
     
     var numberOfPosts: Int {
         return posts.count
+    }
+    
+    func sortPostByDate() {
+        posts.sort { $0.createdAt > $1.createdAt }
     }
     
 }
