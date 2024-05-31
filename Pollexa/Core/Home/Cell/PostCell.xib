@@ -32,22 +32,35 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="372" height="53"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eI6-Ym-ANf">
-                                                        <rect key="frame" x="0.0" y="4.6666666666666679" width="272" height="44"/>
+                                                        <rect key="frame" x="0.0" y="6.6666666666666679" width="272" height="40"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_4" translatesAutoresizingMaskIntoConstraints="NO" id="Psu-BV-Rvf">
-                                                                <rect key="frame" x="0.0" y="0.0" width="32" height="44"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ih2-bH-Qnd">
+                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_4" translatesAutoresizingMaskIntoConstraints="NO" id="Psu-BV-Rvf">
+                                                                        <rect key="frame" x="0.0" y="4" width="32" height="32"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="32" id="Dki-6J-08f"/>
+                                                                            <constraint firstAttribute="height" constant="32" id="vhX-vX-2XA"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="32" id="9qp-F1-p4B"/>
+                                                                    <constraint firstAttribute="width" constant="40" id="15I-nu-SSY"/>
+                                                                    <constraint firstItem="Psu-BV-Rvf" firstAttribute="leading" secondItem="Ih2-bH-Qnd" secondAttribute="leading" id="47A-tH-t8P"/>
+                                                                    <constraint firstAttribute="height" constant="40" id="LJk-Mc-mvk"/>
+                                                                    <constraint firstItem="Psu-BV-Rvf" firstAttribute="centerY" secondItem="Ih2-bH-Qnd" secondAttribute="centerY" id="ntV-5c-eHL"/>
                                                                 </constraints>
-                                                            </imageView>
+                                                            </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lisa Bryant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Y6-dW-HqY">
-                                                                <rect key="frame" x="42" y="0.0" width="230" height="44"/>
+                                                                <rect key="frame" x="50" y="0.0" width="222" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="44" id="UAA-Ep-l8V"/>
+                                                            <constraint firstItem="Ih2-bH-Qnd" firstAttribute="leading" secondItem="eI6-Ym-ANf" secondAttribute="leading" id="dyZ-wm-dDi"/>
                                                         </constraints>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 days ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nx-F9-cbE">

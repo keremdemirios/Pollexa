@@ -51,13 +51,14 @@ final class PostCell: UICollectionViewCell {
         super.layoutSubviews()
         
         setupImageViews()
+        setupAvatarImage()
     }
     
     // MARK: Configure
     private func configure() {
         setupView()
         setupButtons()
-        setupAvatarImage()
+//        setupAvatarImage()
     }
     
     
@@ -66,13 +67,16 @@ final class PostCell: UICollectionViewCell {
         makeBorder(color: .clear)
         layer.cornerRadius = 25
         updateVoteVisibility(voted: false)
-        // TODO: View'i ayarla duzgunce biraz daha iceriden baslasin.
     }
     
     private func setupAvatarImage() {
+        avatarImage.layoutIfNeeded()
         let radius = avatarImage.frame.size.width / 2
         avatarImage.makeBorder(color: .clear)
-        avatarImage.makeCircle(radius: radius)
+        avatarImage.layer.cornerRadius = radius
+        avatarImage.layer.masksToBounds = true
+        avatarImage.clipsToBounds = true
+        avatarImage.contentMode = .scaleAspectFill
     }
     
     private func setupImageViews() {
