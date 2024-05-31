@@ -11,6 +11,7 @@ final class HomeViewController: UIViewController {
     
     // MARK: IBOutlets
     @IBOutlet weak var headerItem: UIView!
+    @IBOutlet weak var activePoolsLabel: UILabel!
     @IBOutlet weak var postsCollectionView: UICollectionView!
     
     // MARK: View Model
@@ -26,11 +27,6 @@ final class HomeViewController: UIViewController {
         
         viewModel?.didLoad()
         configure()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-           
     }
     
     private func configure() {
@@ -60,7 +56,7 @@ final class HomeViewController: UIViewController {
         
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: size, height: size))
         containerView.addSubview(avatarImageView)
-
+        
         let imageItem = UIBarButtonItem(customView: containerView)
         let negativeSpacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         negativeSpacer.width = -16
@@ -103,6 +99,7 @@ extension HomeViewController: HomeViewModelDelegate, LoadingShowable {
         DispatchQueue.main.async {
             self.viewModel.sortPostByDate()
             self.postsCollectionView.reloadData()
+            self.activePoolsLabel.text = "\(self.viewModel.numberOfPosts) Active Pools"
         }
     }
     
@@ -131,7 +128,7 @@ extension HomeViewController: UICollectionViewDataSource {
         }
         
         if let post = viewModel.post(at: indexPath.item) {
-            cell.configure(with: post)
+            cell.configure(with: post, viewModel: viewModel)
         }
         
         return cell
@@ -155,5 +152,4 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 12
     }
-    
 }
