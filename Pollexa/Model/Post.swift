@@ -13,11 +13,12 @@ struct Post: Decodable {
     let content: String
     var options: [PostOption]
     let user: User
-    
+    var voted: Bool?
+
     mutating func vote(for optionIndex: Int) {
         guard optionIndex < options.count else { return }
         options[optionIndex].votes += 1
+        voted = true
     }
 }
-
 
