@@ -46,28 +46,33 @@ final class HomeViewController: UIViewController {
     }
     
     private func setupAvatar() {
-        let avatarImage                    = UIImage(named: "avatar_1")
-        let avatarImageView                = UIImageView(image: avatarImage)
+        let avatarImage = UIImage(named: "avatar_1")
+        let avatarImageView = UIImageView(image: avatarImage)
         
-        // Frame boyutlarını ayarla
-        let size: CGFloat = 40
-        avatarImageView.frame              = CGRect(x: 0, y: 0, width: 80, height: 80)
-        avatarImageView.layer.borderWidth  = 1
-        avatarImageView.layer.borderColor  = UIColor.red.cgColor
+        let size: CGFloat = 34
+        avatarImageView.frame = CGRect(x: 0, y: 0, width: size, height: size)
+        avatarImageView.layer.borderWidth = 1
+        avatarImageView.layer.borderColor = UIColor.clear.cgColor
         avatarImageView.layer.cornerRadius = size / 2
-        avatarImageView.contentMode        = .scaleAspectFit
-        avatarImageView.clipsToBounds      = true
+        avatarImageView.contentMode = .scaleAspectFill
+        avatarImageView.layer.masksToBounds = true
+        avatarImageView.clipsToBounds = true
+        
+        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: size, height: size))
+        containerView.addSubview(avatarImageView)
 
-        let imageItem                      = UIBarButtonItem(customView: avatarImageView)
-        let negativeSpacer                 = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        negativeSpacer.width               = -16
+        let imageItem = UIBarButtonItem(customView: containerView)
+        let negativeSpacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        negativeSpacer.width = -16
         
         navigationItem.leftBarButtonItems = [negativeSpacer, imageItem]
     }
+    
     private func setupHeaderView() {
         headerItem.makeBorder(color: .clear)
         headerItem.layer.cornerRadius = headerItem.frame.size.width / 16
     }
+    
     private func setupPostsCollectionView() {
         postsCollectionView.delegate   = self
         postsCollectionView.dataSource = self

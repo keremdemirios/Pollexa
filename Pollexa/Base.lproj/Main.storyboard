@@ -86,6 +86,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZMb-OS-XbA">
+                        <barButtonItem key="leftBarButtonItem" image="avatar_1" id="3yW-P8-vcd"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rNe-0v-zsw">
                             <color key="tintColor" name="AccentColor"/>
                             <connections>
@@ -123,6 +124,7 @@
     </scenes>
     <resources>
         <image name="arrow.right.square.fill" catalog="system" width="128" height="114"/>
+        <image name="avatar_1" width="80" height="80"/>
         <namedColor name="AccentColor">
             <color red="0.3449999988079071" green="0.33700001239776611" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
