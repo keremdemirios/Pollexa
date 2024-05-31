@@ -27,8 +27,8 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="-25" translatesAutoresizingMaskIntoConstraints="NO" id="fjS-zj-H0b">
                                                 <rect key="frame" x="0.0" y="0.0" width="309" height="74"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Active Pools" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Occ-v3-ose">
-                                                        <rect key="frame" x="0.0" y="0.0" width="134.66666666666666" height="49.666666666666664"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 Active Pools" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Occ-v3-ose">
+                                                        <rect key="frame" x="0.0" y="0.0" width="134" height="49.666666666666664"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                         <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
                                                         <nil key="highlightedColor"/>
@@ -95,6 +95,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activePoolsLabel" destination="Occ-v3-ose" id="13D-sr-FEp"/>
                         <outlet property="headerItem" destination="XBB-RA-u40" id="Gjj-x8-AMq"/>
                         <outlet property="postsCollectionView" destination="mA4-gO-bJG" id="Fvx-99-Lmn"/>
                     </connections>
