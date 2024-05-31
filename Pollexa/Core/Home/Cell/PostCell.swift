@@ -34,39 +34,30 @@ final class PostCell: UICollectionViewCell {
     @IBOutlet weak var secondPercentageLabel: UILabel!
     
     @IBOutlet weak var totalVotesLabel: UILabel!
-    
-    private var post: Post?
-    private var voted: Bool = false
+    private var postID: String?
+    private var viewModel: HomeViewModelProtocol?
     private var timer: Timer?
     private var lastVoteDate: Date?
     
-    // MARK: Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         configure()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         setupImageViews()
         setupAvatarImage()
     }
     
-    // MARK: Configure
     private func configure() {
         setupView()
         setupButtons()
-//        setupAvatarImage()
     }
     
-    
-    // MARK: Functions
     private func setupView() {
         makeBorder(color: .clear)
         layer.cornerRadius = 25
-        updateVoteVisibility(voted: false)
     }
     
     private func setupAvatarImage() {
@@ -81,10 +72,10 @@ final class PostCell: UICollectionViewCell {
     
     private func setupImageViews() {
         DispatchQueue.main.async {
-            self.firstImageView.clipsToBounds  = true
+            self.firstImageView.clipsToBounds = true
             self.secondImageView.clipsToBounds = true
-            self.firstImageView.contentMode    = .scaleAspectFill
-            self.secondImageView.contentMode   = .scaleAspectFill
+            self.firstImageView.contentMode = .scaleAspectFill
+            self.secondImageView.contentMode = .scaleAspectFill
             
             let radius = self.firstImageView.frame.size.height / 10
             self.firstImageView.makeBorder(color: .clear)
@@ -97,16 +88,17 @@ final class PostCell: UICollectionViewCell {
     
     private func setupButtons() {
         let radius = firstLikeButton.frame.size.width / 2
-        
         firstLikeButton.makeBorder(color: .clear)
         firstLikeButton.makeCircle(radius: radius)
-        
         secondLikeButton.makeBorder(color: .clear)
         secondLikeButton.makeCircle(radius: radius)
     }
     
-    func configure(with post: Post) {
-        self.post = post
+    func configure(with post: Post, viewModel: HomeViewModelProtocol) {
+        self.postID = post.id
+        self.viewModel = viewModel
+        let voted = viewModel.votedPosts[post.id] ?? false
+        self.updateVoteVisibility(voted: voted)
         
         avatarImage.image = post.user.image
         nameLabel.text = post.user.username
@@ -121,41 +113,34 @@ final class PostCell: UICollectionViewCell {
         
         if let firstOption = post.options.first {
             firstImageView.image = firstOption.image
-            
             let firstPercentage = totalVotes == 0 ? 0 : Double(firstOptionVotes) / Double(totalVotes) * 100
             firstPercentageLabel.text = String(format: "%.0f%%", firstPercentage)
         }
         
         if post.options.count > 1 {
             secondImageView.image = post.options[1].image
-            
             let secondPercentage = totalVotes == 0 ? 0 : Double(secondOptionVotes) / Double(totalVotes) * 100
             secondPercentageLabel.text = String(format: "%.0f%%", secondPercentage)
         }
+        
+        if let lastVoteDate = viewModel.lastVoteDates[post.id] {
+            self.lastVoteDate = lastVoteDate
+            handleVoteAction()
+        }
     }
     
-    
-    private func updateVoteVisibility(voted: Bool) {
+    func updateVoteVisibility(voted: Bool) {
         firstLikeButton.isHidden = voted
         secondLikeButton.isHidden = voted
-        
         firstPercentageLabel.isHidden = !voted
         secondPercentageLabel.isHidden = !voted
     }
     
-    
-    private func vote(for optionIndex: Int) {
-        guard var post = post else { return }
-        
-        post.options[optionIndex].votes += 1
-        configure(with: post)
-        
-        self.voted = true
-    }
-    
     private func handleVoteAction() {
-        lastVoteDate = Date()
-        updateLastVoteTime()
+        
+        DispatchQueue.main.async {
+            self.updateLastVoteTime()
+        }
         
         timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(updateLastVoteTime), userInfo: nil, repeats: true)
@@ -179,16 +164,15 @@ final class PostCell: UICollectionViewCell {
     
     // MARK: Actions
     @IBAction func firstLikeButtonAction(_ sender: UIButton) {
-        print("First image liked.")
-        vote(for: 0)
-        updateVoteVisibility(voted: true)
-        handleVoteAction()
+        
+        if let postID = postID {
+            viewModel?.vote(for: postID, optionIndex: 0)
+        }
     }
     
     @IBAction func secondLikeButtonAction(_ sender: UIButton) {
-        print("Second image liked.")
-        vote(for: 1)
-        updateVoteVisibility(voted: true)
-        handleVoteAction()
+        if let postID = postID {
+            viewModel?.vote(for: postID, optionIndex: 1)
+        }
     }
 }
