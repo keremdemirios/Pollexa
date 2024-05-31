@@ -95,7 +95,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="headerItem" destination="XBB-RA-u40" id="Gjj-x8-AMq"/>
-                        <outlet property="headerItemButton" destination="QnI-bi-0K1" id="QUb-nS-wYU"/>
                         <outlet property="postsCollectionView" destination="mA4-gO-bJG" id="Fvx-99-Lmn"/>
                     </connections>
                 </viewController>
