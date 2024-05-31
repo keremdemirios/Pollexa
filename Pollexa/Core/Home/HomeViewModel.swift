@@ -5,22 +5,19 @@
 //  Created by Kerem Demir on 26.05.2024.
 //
 
-
-//func getCoins()
-//func coin(index: Int) -> CoinElement?
-//var numberOfCoins: Int { get }
-//func cancelSearch()
-
 import Foundation
 
 protocol HomeViewModelProtocol {
-//    var posts: [Post] { get }
+
     var numberOfPosts: Int { get }
+    var votedPosts: [String: Bool] { get }
+    var lastVoteDates: [String: Date] { get }
     var delegate: HomeViewModelDelegate? { get set }
     
     func didLoad()
     func post(at index: Int) -> Post?
     func sortPostByDate()
+    func vote(for postID: String, optionIndex: Int)
 }
 
 protocol HomeViewModelDelegate: AnyObject {
@@ -33,7 +30,8 @@ protocol HomeViewModelDelegate: AnyObject {
 final class HomeViewModel {
     
     var posts = [Post]()
-    
+    var votedPosts = [String: Bool]()
+    var lastVoteDates = [String: Date]()
     weak var delegate: HomeViewModelDelegate?
     
     // MARK: Fetch Posts
@@ -78,4 +76,12 @@ extension HomeViewModel: HomeViewModelProtocol {
         posts.sort { $0.createdAt > $1.createdAt }
     }
     
+    func vote(for postID: String, optionIndex: Int) {
+         if let index = posts.firstIndex(where: { $0.id == postID }) {
+             posts[index].vote(for: optionIndex)
+             votedPosts[postID] = true
+             lastVoteDates[postID] = Date()
+             delegate?.reloadData()
+         }
+     }
 }
