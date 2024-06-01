@@ -19,17 +19,25 @@ final class OnboardingCell: UICollectionViewCell {
     @IBOutlet weak var slideDescriptionLabel: UILabel!
     
     func configureUI() {
-        slideImageView.layer.cornerRadius = slideImageView.frame.size.width / 5
-    }
-    
-    func setup(_ slide: OnboardingSlide) {
-        slideTitleLabel.text = slide.title
-        slideDescriptionLabel.text = slide.description
-        
-        if let image = slide.image {
-            slideImageView.isHidden = false
-            slideImageView.image = image
-            slideImageView.contentMode = .scaleAspectFit
-        }
-    }
-}
+          slideImageView.layer.cornerRadius = slideImageView.frame.size.width / 5
+          
+          slideTitleLabel.adjustsFontSizeToFitWidth = true
+          slideTitleLabel.minimumScaleFactor = 0.5
+          slideDescriptionLabel.adjustsFontSizeToFitWidth = true
+          slideDescriptionLabel.minimumScaleFactor = 0.5
+          
+          slideTitleLabel.numberOfLines = 0
+          slideDescriptionLabel.numberOfLines = 0
+      }
+      
+      func setup(_ slide: OnboardingSlide) {
+          slideTitleLabel.text = slide.title
+          slideDescriptionLabel.text = slide.description
+          
+          if let image = slide.image {
+              slideImageView.isHidden = false
+              slideImageView.image = image
+              slideImageView.contentMode = .scaleAspectFit
+          }
+      }
+  }
