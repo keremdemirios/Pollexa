@@ -10,7 +10,7 @@ import UIKit
 struct User: Decodable {
     let id: String
     let username: String
-    let image: UIImage
+    let image_name: String
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -23,17 +23,17 @@ struct User: Decodable {
         
         id = try container.decode(String.self, forKey: .id)
         username = try container.decode(String.self, forKey: .username)
+        image_name = try container.decode(String.self, forKey: .imageName)
+//        let imageName = try container.decode(String.self, forKey: .imageName)
         
-        let imageName = try container.decode(String.self, forKey: .imageName)
-        
-        if let image = UIImage(named: imageName) {
-            self.image = image
-        } else {
-            throw DecodingError.dataCorrupted(.init(
-                codingPath: [CodingKeys.imageName],
-                debugDescription: "An image with name \(imageName) could not be loaded from the bundle.")
-            )
-        }
+//        if let image = UIImage(named: imageName) {
+//            self.image_name = imageName
+//        } else {
+//            throw DecodingError.dataCorrupted(.init(
+//                codingPath: [CodingKeys.imageName],
+//                debugDescription: "An image with name \(imageName) could not be loaded from the bundle.")
+//            )
+//        }
     }
 }
 
