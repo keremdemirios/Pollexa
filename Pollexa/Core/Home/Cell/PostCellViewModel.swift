@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 protocol PostCellViewModelProtocol {
     var postID: String { get }
     var avatarImageName: String? { get }
@@ -104,4 +102,3 @@ final class PostCellViewModel: PostCellViewModelProtocol {
         viewModel.vote(for: post.id, optionIndex: optionIndex)
     }
 }
-31 - 21 - 13

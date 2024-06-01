@@ -11,7 +11,7 @@ final class HomeViewController: UIViewController {
     
     // MARK: IBOutlets
     @IBOutlet weak var headerItem: UIView!
-    @IBOutlet weak var activePoolsLabel: UILabel!
+    @IBOutlet weak var activePollsLabel: UILabel!
     @IBOutlet weak var postsCollectionView: UICollectionView!
     
     // MARK: View Model
@@ -25,7 +25,14 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel?.didLoad()
+//        viewModel?.didLoad()
+//        configure()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.didLoad()
         configure()
     }
     
@@ -65,17 +72,40 @@ final class HomeViewController: UIViewController {
     }
     
     private func setupHeaderView() {
+        guard let headerItem = headerItem else {
+            print("Error: headerItem is nil")
+            return
+        }
         headerItem.makeBorder(color: .clear)
         headerItem.layer.cornerRadius = headerItem.frame.size.width / 16
     }
+
+    
+//    private func setupHeaderView() {
+//        headerItem.makeBorder(color: .clear)
+//        headerItem.layer.cornerRadius = headerItem.frame.size.width / 16
+//    }
+    
+//    private func setupPostsCollectionView() {
+//        postsCollectionView.delegate   = self
+//        postsCollectionView.dataSource = self
+//        postsCollectionView.collectionViewLayout = createLayout(for: postsCollectionView.frame.size.width, scrollDirection: .vertical)
+//        postsCollectionView.register(UINib(nibName: "PostCell", bundle: nil), forCellWithReuseIdentifier: PostCell.reuseIdentifier)
+//        postsCollectionView.backgroundColor = .systemGray6
+//    }
     
     private func setupPostsCollectionView() {
-        postsCollectionView.delegate   = self
+        guard let postsCollectionView = postsCollectionView else {
+            print("Error: postsCollectionView is nil")
+            return
+        }
+        postsCollectionView.delegate = self
         postsCollectionView.dataSource = self
         postsCollectionView.collectionViewLayout = createLayout(for: postsCollectionView.frame.size.width, scrollDirection: .vertical)
         postsCollectionView.register(UINib(nibName: "PostCell", bundle: nil), forCellWithReuseIdentifier: PostCell.reuseIdentifier)
         postsCollectionView.backgroundColor = .systemGray6
     }
+
     
     private func createLayout(for height: Double, scrollDirection: UICollectionView.ScrollDirection) -> UICollectionViewLayout {
         let flowLayout = UICollectionViewFlowLayout()
@@ -99,7 +129,7 @@ extension HomeViewController: HomeViewModelDelegate, LoadingShowable {
         DispatchQueue.main.async {
             self.viewModel.sortPostByDate()
             self.postsCollectionView.reloadData()
-            self.activePoolsLabel.text = "\(self.viewModel.numberOfPosts) Active Pools"
+            self.activePollsLabel.text = "\(self.viewModel.numberOfPosts) Active Polls"
         }
     }
     
@@ -116,7 +146,7 @@ extension HomeViewController: HomeViewModelDelegate, LoadingShowable {
     }
 }
 
-extension HomeViewController: UICollectionViewDataSource {
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfPosts
     }
@@ -139,18 +169,11 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: Kullanilmacayak kaldir.
-    }
-}
-
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = postsCollectionView.frame.size.width
-        return CGSize(width: collectionViewWidth, height: 331)
+        return CGSize(width: collectionViewWidth, height: 338)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

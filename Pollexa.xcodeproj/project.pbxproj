@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		411C5B762C0B6AE300948A4E /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411C5B752C0B6AE300948A4E /* OnboardingCell.swift */; };
+		411C5B782C0B6D2D00948A4E /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411C5B772C0B6D2D00948A4E /* OnboardingSlide.swift */; };
+		418303102C0B3ACB0092E04D /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4183030F2C0B3ACB0092E04D /* OnboardingScreen.swift */; };
 		4198DEA22C029B43001C6413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEA12C029B43001C6413 /* AppDelegate.swift */; };
 		4198DEA42C029B43001C6413 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEA32C029B43001C6413 /* SceneDelegate.swift */; };
 		4198DEA92C029B43001C6413 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4198DEA82C029B43001C6413 /* Base */; };
@@ -32,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		411C5B752C0B6AE300948A4E /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
+		411C5B772C0B6D2D00948A4E /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
+		4183030F2C0B3ACB0092E04D /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		4198DE9E2C029B43001C6413 /* Pollexa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pollexa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4198DEA12C029B43001C6413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4198DEA32C029B43001C6413 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +75,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4183030E2C0B3ABA0092E04D /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				4183030F2C0B3ACB0092E04D /* OnboardingScreen.swift */,
+				411C5B772C0B6D2D00948A4E /* OnboardingSlide.swift */,
+				418303112C0B3AD40092E04D /* Cell */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		418303112C0B3AD40092E04D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				411C5B752C0B6AE300948A4E /* OnboardingCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		4198DE952C029B43001C6413 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				4198DEC02C029FAF001C6413 /* Base */,
+				4183030E2C0B3ABA0092E04D /* Onboarding */,
 				4198DEC32C029FCF001C6413 /* Home */,
 			);
 			path = Core;
@@ -219,6 +244,8 @@
 			dependencies = (
 			);
 			name = Pollexa;
+			packageProductDependencies = (
+			);
 			productName = Pollexa;
 			productReference = 4198DE9E2C029B43001C6413 /* Pollexa.app */;
 			productType = "com.apple.product-type.application";
@@ -247,6 +274,9 @@
 				Base,
 			);
 			mainGroup = 4198DE952C029B43001C6413;
+			packageReferences = (
+				411C5B7C2C0B8A1500948A4E /* XCRemoteSwiftPackageReference "lottie-spm" */,
+			);
 			productRefGroup = 4198DE9F2C029B43001C6413 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -283,10 +313,13 @@
 				4198DEA22C029B43001C6413 /* AppDelegate.swift in Sources */,
 				4198DEC82C02A296001C6413 /* HomeViewModel.swift in Sources */,
 				4198DEC22C029FBB001C6413 /* RootBuilder.swift in Sources */,
+				411C5B762C0B6AE300948A4E /* OnboardingCell.swift in Sources */,
 				4198DECA2C02A29C001C6413 /* HomeBuilder.swift in Sources */,
 				4198DEE42C04C661001C6413 /* UIViewController+Extensions.swift in Sources */,
 				4198DED72C03A18A001C6413 /* UIView+Extensions.swift in Sources */,
 				4198DEBF2C029D7D001C6413 /* LoadingShowable.swift in Sources */,
+				411C5B782C0B6D2D00948A4E /* OnboardingSlide.swift in Sources */,
+				418303102C0B3ACB0092E04D /* OnboardingScreen.swift in Sources */,
 				4198DED12C02AE5F001C6413 /* Post.swift in Sources */,
 				4198DEE22C04C2CD001C6413 /* PostProvider.swift in Sources */,
 				4198DEA42C029B43001C6413 /* SceneDelegate.swift in Sources */,
@@ -515,6 +548,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		411C5B7C2C0B8A1500948A4E /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 4198DE962C029B43001C6413 /* Project object */;
 }
