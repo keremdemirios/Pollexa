@@ -19,8 +19,6 @@ final class OnboardingCell: UICollectionViewCell {
     @IBOutlet weak var slideDescriptionLabel: UILabel!
     
     func configureUI() {
-//        slideImageView.contentMode = .scaleAspectFit
-//        slideImageView.layer.masksToBounds = true
         slideImageView.layer.cornerRadius = slideImageView.frame.size.width / 5
     }
     

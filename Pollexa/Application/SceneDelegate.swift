@@ -19,17 +19,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let rootVC: UIViewController
         
-//        if UserDefaults.standard.bool(forKey: "onboardingCompleted") {
-//            let homeVC = HomeBuilder.build()
-//            let homeNavController = storyboard.instantiateViewController(withIdentifier: "HomeNavigationController") as! UINavigationController
-//            homeNavController.viewControllers = [homeVC]
-//            rootVC = homeNavController
-//        } else {
+        if UserDefaults.standard.bool(forKey: "onboardingCompleted") {
+            let homeVC = HomeBuilder.build()
+            let homeNavController = storyboard.instantiateViewController(withIdentifier: "HomeNavigationController") as! UINavigationController
+            homeNavController.viewControllers = [homeVC]
+            rootVC = homeNavController
+        } else {
             let onboardingVC = storyboard.instantiateViewController(withIdentifier: "OnboardingScreenViewController")
             let onboardingNavController = storyboard.instantiateViewController(withIdentifier: "OnboardingNC") as! UINavigationController
             onboardingNavController.viewControllers = [onboardingVC]
             rootVC = onboardingNavController
-//        }
+        }
         
         self.window?.rootViewController = rootVC
         self.window?.makeKeyAndVisible()
