@@ -8,7 +8,6 @@
 import Foundation
 
 protocol HomeViewModelProtocol {
-
     var numberOfPosts: Int { get }
     var votedPosts: [String: Bool] { get }
     var lastVoteDates: [String: Date] { get }
@@ -16,6 +15,7 @@ protocol HomeViewModelProtocol {
     
     func didLoad()
     func post(at index: Int) -> Post?
+    func postCellViewModel(at index: Int) -> PostCellViewModelProtocol?
     func sortPostByDate()
     func vote(for postID: String, optionIndex: Int)
 }
@@ -44,7 +44,6 @@ final class HomeViewModel {
             case .success(let posts):
                 DispatchQueue.main.async {
                     self.posts = posts
-                    print(posts.first!)
                     self.delegate?.reloadData()
                     self.delegate?.stopLoading()
                 }
@@ -84,4 +83,10 @@ extension HomeViewModel: HomeViewModelProtocol {
              delegate?.reloadData()
          }
      }
+
+    func postCellViewModel(at index: Int) -> PostCellViewModelProtocol? {
+        guard index < posts.count else { return nil }
+        let post = posts[index]
+        return PostCellViewModel(post: post, viewModel: self)
+    }
 }
