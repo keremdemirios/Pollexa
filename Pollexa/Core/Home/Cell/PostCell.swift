@@ -34,10 +34,11 @@ final class PostCell: UICollectionViewCell {
     @IBOutlet weak var secondPercentageLabel: UILabel!
     
     @IBOutlet weak var totalVotesLabel: UILabel!
+    
     private var postID: String?
-    private var viewModel: HomeViewModelProtocol?
+    
+    private var viewModel: PostCellViewModelProtocol?
     private var timer: Timer?
-    private var lastVoteDate: Date?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -94,39 +95,36 @@ final class PostCell: UICollectionViewCell {
         secondLikeButton.makeCircle(radius: radius)
     }
     
-    func configure(with post: Post, viewModel: HomeViewModelProtocol) {
-        self.postID = post.id
+    func configure(with viewModel: PostCellViewModelProtocol) {
         self.viewModel = viewModel
-        let voted = viewModel.votedPosts[post.id] ?? false
-        self.updateVoteVisibility(voted: voted)
+        updateVoteVisibility(voted: viewModel.voted)
         
-        avatarImage.image = post.user.image
-        nameLabel.text = post.user.username
-        timeOfSharingLabel.text = post.createdAt.timeAgoDisplay()
-        questionLabel.text = post.content
-        
-        let totalVotes = post.options.reduce(0) { $0 + $1.votes }
-        totalVotesLabel.text = String("\(totalVotes) Total Votes")
-        
-        let firstOptionVotes = post.options.first?.votes ?? 0
-        let secondOptionVotes = post.options.count > 1 ? post.options[1].votes : 0
-        
-        if let firstOption = post.options.first {
-            firstImageView.image = firstOption.image
-            let firstPercentage = totalVotes == 0 ? 0 : Double(firstOptionVotes) / Double(totalVotes) * 100
-            firstPercentageLabel.text = String(format: "%.0f%%", firstPercentage)
+        if let avatarImageName = viewModel.avatarImageName {
+            avatarImage.image = UIImage(named: avatarImageName)
+        } else {
+            avatarImage.image = nil
         }
         
-        if post.options.count > 1 {
-            secondImageView.image = post.options[1].image
-            let secondPercentage = totalVotes == 0 ? 0 : Double(secondOptionVotes) / Double(totalVotes) * 100
-            secondPercentageLabel.text = String(format: "%.0f%%", secondPercentage)
+        nameLabel.text = viewModel.username
+        timeOfSharingLabel.text = viewModel.createdAt
+        questionLabel.text = viewModel.content
+        totalVotesLabel.text = viewModel.totalVotes
+        
+        if let firstOptionImageName = viewModel.firstOptionImageName {
+            firstImageView.image = UIImage(named: firstOptionImageName)
+        } else {
+            firstImageView.image = nil
         }
         
-        if let lastVoteDate = viewModel.lastVoteDates[post.id] {
-            self.lastVoteDate = lastVoteDate
-            handleVoteAction()
+        if let secondOptionImageName = viewModel.secondOptionImageName {
+            secondImageView.image = UIImage(named: secondOptionImageName)
+        } else {
+            secondImageView.image = nil
         }
+        
+        firstPercentageLabel.text = viewModel.firstPercentage
+        secondPercentageLabel.text = viewModel.secondPercentage
+        timeOfLastVote.text = viewModel.lastVoteTime
     }
     
     func updateVoteVisibility(voted: Bool) {
@@ -136,43 +134,12 @@ final class PostCell: UICollectionViewCell {
         secondPercentageLabel.isHidden = !voted
     }
     
-    private func handleVoteAction() {
-        
-        DispatchQueue.main.async {
-            self.updateLastVoteTime()
-        }
-        
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(updateLastVoteTime), userInfo: nil, repeats: true)
-    }
-    
-    @objc private func updateLastVoteTime() {
-        guard let lastVoteDate = lastVoteDate else { return }
-        
-        let timeInterval = -lastVoteDate.timeIntervalSinceNow
-        
-        if timeInterval < 60 {
-            timeOfLastVote.text = "LAST VOTED JUST NOW"
-        } else if timeInterval < 3600 {
-            let minutes = Int(timeInterval / 60)
-            timeOfLastVote.text = "LAST VOTED \(minutes) MINUTES AGO"
-        } else {
-            let hours = Int(timeInterval / 3600)
-            timeOfLastVote.text = "LAST VOTED \(hours) HOURS AGO"
-        }
-    }
-    
     // MARK: Actions
     @IBAction func firstLikeButtonAction(_ sender: UIButton) {
-        
-        if let postID = postID {
-            viewModel?.vote(for: postID, optionIndex: 0)
-        }
+        viewModel?.vote(for: 0)
     }
     
     @IBAction func secondLikeButtonAction(_ sender: UIButton) {
-        if let postID = postID {
-            viewModel?.vote(for: postID, optionIndex: 1)
-        }
+        viewModel?.vote(for: 1)
     }
 }
