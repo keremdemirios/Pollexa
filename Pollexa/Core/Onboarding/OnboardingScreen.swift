@@ -77,12 +77,10 @@ final class OnboardingScreenViewController: UIViewController {
     
     @IBAction func nextButtonAction(_ sender: Any) {
         if currentPage == slides.count - 1 {
-            // Onboarding tamamlandı, ana ekrana geçiş yap
             UserDefaults.standard.set(true, forKey: "onboardingCompleted")
             
             let homeVC = HomeBuilder.build()
             
-            // Navigation Controller'ı Storyboard'dan yükleyin
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let homeNavController = storyboard.instantiateViewController(withIdentifier: "HomeNavigationController") as? UINavigationController {
                 homeNavController.viewControllers = [homeVC]

@@ -25,14 +25,7 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        viewModel?.didLoad()
-//        configure()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        viewModel.didLoad()
+        viewModel?.didLoad()
         configure()
     }
     
@@ -73,32 +66,18 @@ final class HomeViewController: UIViewController {
     
     private func setupHeaderView() {
         guard let headerItem = headerItem else {
-            print("Error: headerItem is nil")
-            return
+            fatalError("Error: headerItem is nil")
         }
+        
         headerItem.makeBorder(color: .clear)
         headerItem.layer.cornerRadius = headerItem.frame.size.width / 16
     }
-
-    
-//    private func setupHeaderView() {
-//        headerItem.makeBorder(color: .clear)
-//        headerItem.layer.cornerRadius = headerItem.frame.size.width / 16
-//    }
-    
-//    private func setupPostsCollectionView() {
-//        postsCollectionView.delegate   = self
-//        postsCollectionView.dataSource = self
-//        postsCollectionView.collectionViewLayout = createLayout(for: postsCollectionView.frame.size.width, scrollDirection: .vertical)
-//        postsCollectionView.register(UINib(nibName: "PostCell", bundle: nil), forCellWithReuseIdentifier: PostCell.reuseIdentifier)
-//        postsCollectionView.backgroundColor = .systemGray6
-//    }
     
     private func setupPostsCollectionView() {
         guard let postsCollectionView = postsCollectionView else {
-            print("Error: postsCollectionView is nil")
-            return
+            fatalError("Error: postsCollectionView is nil")
         }
+        
         postsCollectionView.delegate = self
         postsCollectionView.dataSource = self
         postsCollectionView.collectionViewLayout = createLayout(for: postsCollectionView.frame.size.width, scrollDirection: .vertical)
@@ -156,10 +135,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCell.reuseIdentifier, for: indexPath) as? PostCell else {
             return UICollectionViewCell()
         }
-        
-//        if let post = viewModel.post(at: indexPath.item) {
-//            cell.configure(with: post, viewModel: viewModel)
-//        }
         
         if let cellViewModel = viewModel.postCellViewModel(at: indexPath.item) {
                   cell.configure(with: cellViewModel)
