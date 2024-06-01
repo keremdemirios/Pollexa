@@ -27,8 +27,8 @@
 		4198DEDE2C03B86F001C6413 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEDB2C03B86F001C6413 /* PostCell.swift */; };
 		4198DEE22C04C2CD001C6413 /* PostProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEE12C04C2CD001C6413 /* PostProvider.swift */; };
 		4198DEE42C04C661001C6413 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEE32C04C661001C6413 /* UIViewController+Extensions.swift */; };
-		4198DEE62C04C9E0001C6413 /* PostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEE52C04C9E0001C6413 /* PostCellViewModel.swift */; };
 		4198DEE82C04D976001C6413 /* Date+Extenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198DEE72C04D976001C6413 /* Date+Extenions.swift */; };
+		41B54E072C0A8D12009DC936 /* PostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B54E062C0A8D12009DC936 /* PostCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,8 +54,8 @@
 		4198DEDC2C03B86F001C6413 /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		4198DEE12C04C2CD001C6413 /* PostProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProvider.swift; sourceTree = "<group>"; };
 		4198DEE32C04C661001C6413 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		4198DEE52C04C9E0001C6413 /* PostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewModel.swift; sourceTree = "<group>"; };
 		4198DEE72C04D976001C6413 /* Date+Extenions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extenions.swift"; sourceTree = "<group>"; };
+		41B54E062C0A8D12009DC936 /* PostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +190,7 @@
 			children = (
 				4198DEDB2C03B86F001C6413 /* PostCell.swift */,
 				4198DEDC2C03B86F001C6413 /* PostCell.xib */,
-				4198DEE52C04C9E0001C6413 /* PostCellViewModel.swift */,
+				41B54E062C0A8D12009DC936 /* PostCellViewModel.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -281,7 +281,6 @@
 				4198DEE82C04D976001C6413 /* Date+Extenions.swift in Sources */,
 				4198DEDE2C03B86F001C6413 /* PostCell.swift in Sources */,
 				4198DEA22C029B43001C6413 /* AppDelegate.swift in Sources */,
-				4198DEE62C04C9E0001C6413 /* PostCellViewModel.swift in Sources */,
 				4198DEC82C02A296001C6413 /* HomeViewModel.swift in Sources */,
 				4198DEC22C029FBB001C6413 /* RootBuilder.swift in Sources */,
 				4198DECA2C02A29C001C6413 /* HomeBuilder.swift in Sources */,
@@ -292,6 +291,7 @@
 				4198DEE22C04C2CD001C6413 /* PostProvider.swift in Sources */,
 				4198DEA42C029B43001C6413 /* SceneDelegate.swift in Sources */,
 				4198DED32C02AE79001C6413 /* User.swift in Sources */,
+				41B54E072C0A8D12009DC936 /* PostCellViewModel.swift in Sources */,
 				4198DEC62C02A00E001C6413 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

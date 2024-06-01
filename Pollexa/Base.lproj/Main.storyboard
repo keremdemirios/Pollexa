@@ -25,7 +25,7 @@
                                         <rect key="frame" x="16" y="2" width="358" height="74"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="-25" translatesAutoresizingMaskIntoConstraints="NO" id="fjS-zj-H0b">
-                                                <rect key="frame" x="0.0" y="0.0" width="309" height="74"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="292.33333333333331" height="74"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 Active Pools" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Occ-v3-ose">
                                                         <rect key="frame" x="0.0" y="0.0" width="134" height="49.666666666666664"/>
@@ -42,11 +42,15 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnI-bi-0K1">
-                                                <rect key="frame" x="309" y="0.0" width="49" height="74"/>
+                                                <rect key="frame" x="292.33333333333331" y="0.0" width="65.666666666666686" height="74"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="33" id="Mg5-6T-lDu"/>
+                                                </constraints>
                                                 <color key="tintColor" systemColor="secondarySystemBackgroundColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain">
-                                                    <imageReference key="image" image="arrow.right.square.fill" catalog="system" symbolScale="large"/>
+                                                    <imageReference key="image" image="arrow.right.square.fill" catalog="system" symbolScale="large" variableValue="1"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="28"/>
                                                 </buttonConfiguration>
                                             </button>
                                         </subviews>
