@@ -88,7 +88,7 @@ final class HomeViewController: UIViewController {
     }
     
     @IBAction func addBarButtonItemAction(_ sender: Any) {
-        print("Added.")
+        
     }
 }
 
@@ -127,9 +127,13 @@ extension HomeViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        if let post = viewModel.post(at: indexPath.item) {
-            cell.configure(with: post, viewModel: viewModel)
-        }
+//        if let post = viewModel.post(at: indexPath.item) {
+//            cell.configure(with: post, viewModel: viewModel)
+//        }
+        
+        if let cellViewModel = viewModel.postCellViewModel(at: indexPath.item) {
+                  cell.configure(with: cellViewModel)
+              }
         
         return cell
     }
